@@ -2,8 +2,8 @@ export AbstractNLSModel, nls_meta, NLSCounters, reset!,
        residual, residual!, jac_residual, jac_structure_residual, jac_coord_residual!,
        jac_coord_residual, jprod_residual,
        jprod_residual!, jtprod_residual, jtprod_residual!, jac_op_residual,
-       jac_op_residual!, hess_residual, hess_structure_residual, hess_coord_residual!,
-       hess_coord_residual, jth_hess_residual,
+       jac_op_residual!, hess_residual, hess_structure_residual, hess_structure_residual!,
+       hess_coord_residual!, hess_coord_residual, jth_hess_residual,
        hprod_residual, hprod_residual!, hess_op_residual, hess_op_residual!,
        NotImplementedError
 
@@ -230,6 +230,15 @@ Returns the structure of the residual Hessian.
 """
 function hess_structure_residual(nls :: AbstractNLSModel)
   throw(NotImplementedError("hess_structure_residual"))
+end
+
+"""
+    hess_structure_residual!(nls, rows, cols)
+
+Returns the structure of the residual Hessian in place.
+"""
+function hess_structure_residual!(nls :: AbstractNLSModel, rows :: AbstractVector{<: Integer}, cols :: AbstractVector{<: Integer})
+  throw(NotImplementedError("hess_structure_residual!"))
 end
 
 """
